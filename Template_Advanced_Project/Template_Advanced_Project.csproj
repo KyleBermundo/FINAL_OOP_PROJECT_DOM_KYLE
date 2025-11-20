@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\AttackType.cs" />
     <Compile Include="Classes\GameFactory.cs" />
+    <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\Move.cs" />
     <Compile Include="Classes\Pokemon.cs" />
