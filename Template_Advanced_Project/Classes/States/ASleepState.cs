@@ -10,12 +10,12 @@ namespace Template_Advanced_Project.Classes.States
     {
         public void ExtraDamage(Pokemon pokemon)
         {
-            throw new NotImplementedException();
+            
         }
 
         public int GetThreshold()
         {
-            throw new NotImplementedException();
+            return 25; 
         }
 
         //TODO ...

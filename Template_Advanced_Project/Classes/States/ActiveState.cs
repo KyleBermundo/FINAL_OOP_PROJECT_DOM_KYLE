@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +10,12 @@ namespace Template_Advanced_Project.Classes.States
     {
         public void ExtraDamage(Pokemon pokemon)
         {
-            throw new NotImplementedException();
+            
         }
 
         public int GetThreshold()
         {
-            throw new NotImplementedException();
+            return 0; 
         }
 
         //TODO ...

@@ -15,7 +15,7 @@ namespace Template_Advanced_Project.Classes.States
 
         public int GetThreshold()
         {
-            throw new NotImplementedException();
+            return 12;
         }
 
         //TODO ...

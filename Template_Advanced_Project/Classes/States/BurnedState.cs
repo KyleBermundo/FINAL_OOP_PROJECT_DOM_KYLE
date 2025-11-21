@@ -10,12 +10,13 @@ namespace Template_Advanced_Project.Classes.States
     {
         public void ExtraDamage(Pokemon pokemon)
         {
-            throw new NotImplementedException();
+            int dmg = pokemon.Hp_MAX / 8;
+            pokemon.Hp -= dmg; 
         }
 
         public int GetThreshold()
         {
-            throw new NotImplementedException();
+            return 12;
         }
 
         //TODO ...
