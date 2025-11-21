@@ -50,6 +50,7 @@
     <Compile Include="Classes\Move.cs" />
     <Compile Include="Classes\Pokemon.cs" />
     <Compile Include="Classes\PokemonType.cs" />
+    <Compile Include="Classes\Potion.cs" />
     <Compile Include="Classes\PotionType.cs" />
     <Compile Include="Classes\RNG.cs" />
     <Compile Include="Classes\States\ActiveState.cs" />

@@ -9,17 +9,17 @@ namespace Template_Advanced_Project.Classes
     public class Item
     {
 
-        private string Name;
-        private string Id;
+        private string name;
+        private string id;
 
-        public string Name1 { get => Name; set => Name = value; }
-        public string Id1 { get => Id; set => Id = value; }
+        public string Name { get => Name; set => Name = value; }
+        public string Id { get => Id; set => Id = value; }
 
 
         public Item(string name, string id)
         {
-            Name = name;
-            Id = id;
+            this.Name = name;
+            this.Id = id;
         }
 
         public override string ToString()
