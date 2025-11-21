@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Template_Advanced_Project.Classes.States
 {
-    public class ActiveState
+    public class ActiveState : IState
     {
+        public void ExtraDamage(Pokemon pokemon)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetThreshold()
+        {
+            throw new NotImplementedException();
+        }
+
         //TODO ...
 
         public override string ToString()

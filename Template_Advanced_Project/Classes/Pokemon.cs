@@ -47,7 +47,7 @@ namespace Template_Advanced_Project.Classes
 
         public string Name { get => name.ToUpper(); }
         
-        public IState Status { get => status; }
+        public IState state { get => status; }
         public Move MyMove { get => myMove; }
        
         public int Hp { get => hp; set => hp = value; }
