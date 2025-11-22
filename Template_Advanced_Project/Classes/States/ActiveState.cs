@@ -8,6 +8,17 @@ namespace Template_Advanced_Project.Classes.States
 {
     public class ActiveState : IState
     {
+        private static ActiveState instance = new ActiveState();
+
+        private ActiveState() 
+        {
+        }
+
+        public static ActiveState GetInstance()
+        {
+            return instance;
+        }
+
         public void ExtraDamage(Pokemon pokemon)
         {
             

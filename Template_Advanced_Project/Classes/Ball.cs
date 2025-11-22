@@ -21,7 +21,7 @@ namespace Template_Advanced_Project.Classes
         public int Max_RND { get => max_RND; set => max_RND = value; }
         public bool IsMaster { get => isMaster; set => isMaster = value; }
 
-        public IState State { get; set; }
+        public IState status { get; set; }
 
         public Ball(string name, int price, double rate, int ball_Value, int max_RND, bool isMaster, string id) : base(name, id)
         {

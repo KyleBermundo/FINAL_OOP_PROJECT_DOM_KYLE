@@ -7,11 +7,11 @@ using Template_Advanced_Project.Classes.States;
 
 namespace Template_Advanced_Project.Classes
 {
-    
-       
+
+
     public class Pokemon
     {
-                                           //FIRE, WATER, ELECTRIC, GRASS, ICE, POISON 
+        //FIRE, WATER, ELECTRIC, GRASS, ICE, POISON 
         static int[,] TypeChart = {/*FIRE*/ {50 , 50 , 100 , 200 , 200 , 100},
                                   /*WATER*/ {200, 50 , 100 , 50  , 50  , 100},
                                /*ELECTRIC*/ {100, 200, 50  , 50  , 100 , 100},
@@ -23,7 +23,7 @@ namespace Template_Advanced_Project.Classes
 
         private string name;
         private PokemonType type;    //FIRE, WATER, ELECTRIC, GRASS, ICE, POISON
-        private IState status; 
+        private IState status;
         private Move myMove;//Status Attack
 
         private int hp;      // Hit Points
@@ -38,7 +38,7 @@ namespace Template_Advanced_Project.Classes
 
         private int catch_Rate;          //Used by Ball to calculate the chance to catching the Pokemon
         private int sleep_Duration = 0; //Used for ASLEEP Pokemon
-        
+
         private int base_Exp;  //Bonus Question: Used to calculate the reward Point of the Trainer. You can use it for LevelUp also
         private int level = 1; //Bonus Question: Used to calculate the LevelUp
         #endregion
@@ -46,14 +46,14 @@ namespace Template_Advanced_Project.Classes
         #region Public Properties
 
         public string Name { get => name.ToUpper(); }
-        
+
         public IState state { get => status; }
         public Move MyMove { get => myMove; }
-       
+
         public int Hp { get => hp; set => hp = value; }
         public int Hp_MAX { get => hp_MAX; }
 
-        
+
         public int Catch_Rate { get => catch_Rate; }
         public int StatusThreshold { get => this.status.GetThreshold(); }
         #endregion
@@ -68,13 +68,15 @@ namespace Template_Advanced_Project.Classes
             this.hp = 3 * this.hp_MAX;//Hits Points formulas =  3 * HP_MAX (Base HP)
             this.atk = atk;
             this.atk_Max = atk;
-            this.def = def /3;//Devide Def by 3, because Def values are too high
+            this.def = def / 3;//Devide Def by 3, because Def values are too high
             this.sp_Atk = sp_Atk;
-            this.sp_Def = sp_Def/3;//Devide Sp_Def by 3, because Sp_Def values are too high
+            this.sp_Def = sp_Def / 3;//Devide Sp_Def by 3, because Sp_Def values are too high
             this.speed = speed;
             this.speed_Max = speed;
             this.catch_Rate = catch_Rate;
             this.base_Exp = base_Exp;
+            this.status = ActiveState.GetInstance();
+
         }
         public Pokemon Clone()
         {
@@ -104,7 +106,7 @@ namespace Template_Advanced_Project.Classes
         {
             if (this.type != PokemonType.FIRE)
             {
-                //this.status = BurnedState.GetInstance();
+                this.status = BurnedState.GetInstance();
                 this.atk = this.atk / 2;   //Attack Power is decreased by 50%
                 Console.WriteLine(this.name + " is BURNED !");
             }
@@ -113,7 +115,7 @@ namespace Template_Advanced_Project.Classes
         {
             if (this.type != PokemonType.POISON)
             {
-                //this.status = PoisonedState.GetInstance();
+                this.status = PoisonedState.GetInstance();
                 Console.WriteLine(this.name + " is POISONED !");
             }
         }
@@ -122,7 +124,7 @@ namespace Template_Advanced_Project.Classes
             if (this.type != PokemonType.ICE && this.type != PokemonType.FIRE)
             {
                 //FROZEN Pokemon is unable to use Special Attack
-                //this.status = FrozenState.GetInstance();
+                this.status = FrozenState.GetInstance();
                 Console.WriteLine(this.name + " is FROZEN !");
             }
         }
@@ -130,14 +132,14 @@ namespace Template_Advanced_Project.Classes
         {
             if (this.type != PokemonType.ELECTRIC)
             {
-                //this.status = ParalyzedState.GetInstance();
+                this.status = ParalyzedState.GetInstance();
                 this.speed = this.speed / 2; //Speed is decreased by 50%
                 Console.WriteLine(this.name + " is PARALYZED !");
             }
         }
         public void Sleep()
         {
-            //this.status = ASleepState.GetInstance();
+            this.status = ASleepState.GetInstance();
             this.sleep_Duration = RNG.GetInstance().Next(1, 8);//Sleep lasts for a randomly chosen duration of 1 to 7 turns
             Console.WriteLine(this.name + " falls ASLEEP !");
         }
@@ -195,6 +197,10 @@ namespace Template_Advanced_Project.Classes
                 Console.WriteLine(target.name + " avoided the Status Attack !");
             }
         }
+        public void SetState(IState newState)
+        {
+            status = newState;
+        }
         //-----------------------------------------------------------------------------------------------
         public void ApplyPotion(PotionType type)
         {
@@ -245,53 +251,182 @@ namespace Template_Advanced_Project.Classes
         //---------------------------------------------------------------------------------------
         public void Burn_Heal()
         {
-            //TODO
+            if (status is BurnedState)
+            {
+                this.status = ActiveState.GetInstance();
+            }
         }
         public void Poison_Heal()
         {
-            //TODO
+            if (status is PoisonedState)
+            {
+                this.status = ActiveState.GetInstance();
+            }
         }
         public void Ice_Heal()
         {
-            //TODO
+            if (status is FrozenState)
+            {
+                this.status = ActiveState.GetInstance();
+            }
         }
         public void Paralyze_Heal()
         {
-            //TODO
+            if (status is ParalyzedState)
+            {
+                this.status = ActiveState.GetInstance();
+            }
         }
         public void Sleep_Heal()
         {
-            //TODO
+            if (status is ASleepState)
+            {
+                this.status = ActiveState.GetInstance();
+            }
         }
         public void Max_Heal()
         {
-            //TODO
+            this.hp = this.hp_MAX;
         }
         public void Full_Heal()
         {
-            //TODO
+            this.atk = this.atk_Max;
+            this.speed = this.speed_Max;
+
+            this.status = ActiveState.GetInstance();
+
+
+
         }
         public void Full_Restore()
         {
-            //TODO
+            if (!Is_Fainted())
+            {
+                this.hp = this.hp_MAX;
+
+                this.Full_Heal();
+            }
         }
         public void Revive()
         {
-            //TODO
+            if (Is_Fainted())
+            {
+                hp = Math.Max(1, hp_MAX / 2);
+            }
         }
         public override string ToString()
         {
-            //TODO
-            return base.ToString();
+
+            return status.ToString();
         }
         public void Take_Damage(int damage, AttackType type)
         {
-            //TODO
+            int finalDamage = damage;
+
+            // 1. Physical Attack
+            if (type == AttackType.PHYSICAL)
+            {
+                if (damage > this.def)
+                {
+                    finalDamage = damage - this.def;
+                }
+                else
+                {
+                    finalDamage = 0;
+                }
+            }
+            // 2. Special Attack
+            else if (type == AttackType.SPECIAL)
+            {
+                if (damage > this.sp_Def)
+                {
+                    finalDamage = damage - this.sp_Def;
+                }
+                else
+                {
+                    finalDamage = 0;
+                }
+            }
+
+            // Apply the damage
+            this.hp -= finalDamage;
+
+            // 3. Extra damage from Burn or Poison
+            if (status is BurnedState || status is PoisonedState)
+            {
+                status.ExtraDamage(this);
+            }
+
+            // Prevent negative HP
+            if (this.hp < 0)
+                this.hp = 0;
         }
+
 
         public void Attack(Pokemon target, AttackType atk_type)
         {
-            //TODO
+            int random_damage = 0;
+            //paralyze
+            if (status is ParalyzedState)
+            {
+                int R = RNG.GetInstance().Next(0, 100);
+                if (R < 25)
+                {
+                    Console.WriteLine(Name + " is paralyzed and can't move!");
+                    return; // Skip turn
+                }
+            }
+
+            if (status is ASleepState)
+            {
+                if (sleep_Duration > 0)
+                {
+                    Console.WriteLine(Name + " is a sleep");
+                    sleep_Duration--;
+                    return;
+                }
+
+            }
+
+            if (atk_type == AttackType.STATUS)
+            {
+                Move_Attack(target);
+
+                return;
+            }
+
+            if (atk_type == AttackType.PHYSICAL)
+            {
+                {
+                    random_damage = RNG.GetInstance().Next(0, atk +1);
+                }
+
+            }
+            
+            if(atk_type == AttackType.SPECIAL)
+            {
+
+                if (this.status is FrozenState)
+                {
+                    Console.WriteLine(name + " Cannot use speicla their frozen.");
+                    return;
+                }
+                random_damage = RNG.GetInstance().Next(0, sp_Atk + 1);
+
+
+            }
+
+            int row = (int)this.type;
+            int col = (int)target.type;
+            int modifier = TypeChart[row, col];  // Ex: 200 = super effective
+
+            int final_damage = random_damage * modifier / 100;
+
+           
+            // TARGET TAKES DAMAGE
+       
+            target.Take_Damage(final_damage, atk_type);
+
         }
     }
 }
