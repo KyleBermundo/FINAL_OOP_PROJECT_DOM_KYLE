@@ -10,21 +10,22 @@ namespace Template_Advanced_Project.Classes
     {
 
         private string name;
-        private string id;
+        private int price;
 
-        public string Name { get => Name; set => Name = value; }
-        public string Id { get => Id; set => Id = value; }
+        public string Name { get => Name; set => name = value; }
+        public int Price { get => Price; set => price = value; }
 
 
-        public Item(string name, string id)
+        public Item(string name, int price)
         {
             this.Name = name;
-            this.Id = id;
+            this.Price = price;
+
         }
 
         public override string ToString()
         {
-            return Name + Id;
+            return Name + Price;
             
 
         } 

@@ -10,18 +10,17 @@ namespace Template_Advanced_Project.Classes
 {
     public class Potion : Item
     {
-        public PotionType Type { get; set; }
+        private PotionType type { get; set; }
 
-        public Potion(string name, string id, PotionType type) : base(name, id)
+        public Potion(string name, int price, PotionType type) : base(name, price)
         {
-            Type = type;
+            this.type = type;
         }
 
         public Potion Clone()
         {
-            return new Potion(Name, Id, Type);
+            return new Potion(this.Name, this.Price, this.type);
         }
-
 
 
     }

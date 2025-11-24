@@ -27,7 +27,8 @@ namespace Template_Advanced_Project.Classes
             partner.myMove = new Move("Thunder Wave", accuracy: 90, pp_max: 20);
             return partner;
         }
-        /*
+        
+        //removed comment block for this so it works for trainer.cs +  question 6
         public static Ball CreatePokeBall()
         {
             return new Ball(name: "Poke Ball", price: 100, rate: 1, ball_val: 12, max: 255, false);
@@ -44,6 +45,8 @@ namespace Template_Advanced_Project.Classes
         {
             return new Ball(name: "MASTER BALL", price: 1000000, rate: 0, ball_val: 0, max: 0, isMaster: true);
         }
+
+        /*
         private static void Create_Balls()
         {
             BallsInventory.Add(new Ball(name: "Poke Ball" , price: 100, rate: 1  , ball_val: 12, max: 255, false));

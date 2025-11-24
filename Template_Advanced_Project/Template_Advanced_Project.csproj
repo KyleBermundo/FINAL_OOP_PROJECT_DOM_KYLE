@@ -49,6 +49,7 @@
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\Move.cs" />
+    <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Pokemon.cs" />
     <Compile Include="Classes\PokemonType.cs" />
     <Compile Include="Classes\Potion.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Classes\States\IState.cs" />
     <Compile Include="Classes\States\ParalyzedState.cs" />
     <Compile Include="Classes\States\PoisonedState.cs" />
+    <Compile Include="Classes\Trainer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

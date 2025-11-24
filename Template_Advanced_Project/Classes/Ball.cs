@@ -10,10 +10,10 @@ namespace Template_Advanced_Project.Classes
     public class Ball : Item
     {
 
-        double rate;
-        int ball_Value;
-        int max_RND;
-        bool isMaster;
+        private double rate;
+        private int ball_Value;
+        private int max_RND;
+        private bool isMaster;
             
 
         public double Rate { get => rate; set => rate = value; }
@@ -21,18 +21,12 @@ namespace Template_Advanced_Project.Classes
         public int Max_RND { get => max_RND; set => max_RND = value; }
         public bool IsMaster { get => isMaster; set => isMaster = value; }
 
-        public IState status { get; set; }
-
-        public Ball(string name, int price, double rate, int ball_Value, int max_RND, bool isMaster, string id) : base(name, id)
+        public Ball(string name, int price, double rate, int ball_val, int max_RND, bool isMaster) : base(name, price)
         {
             this.rate = rate;
-            this.ball_Value = ball_Value;
+            this.ball_Value = ball_val;
             this.max_RND = max_RND;
             this.isMaster = isMaster;
-
-
-
-
         }
 
         public bool Catch(Pokemon pokemon)
