@@ -10,7 +10,13 @@ namespace Template_Advanced_Project.Classes
 {
     public class Potion : Item
     {
-        private PotionType type { get; set; }
+        private PotionType type;
+
+        public PotionType Type
+        {
+            get { return type; } 
+            set { type = value; }
+        }
 
         public Potion(string name, int price, PotionType type) : base(name, price)
         {

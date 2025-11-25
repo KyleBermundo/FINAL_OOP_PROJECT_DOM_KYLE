@@ -12,8 +12,8 @@ namespace Template_Advanced_Project.Classes
         private string name;
         private int price;
 
-        public string Name { get => Name; set => name = value; }
-        public int Price { get => Price; set => price = value; }
+        public string Name { get => name; set => name = value; }
+        public int Price { get => price; set => price = value; }
 
 
         public Item(string name, int price)
@@ -25,9 +25,7 @@ namespace Template_Advanced_Project.Classes
 
         public override string ToString()
         {
-            return Name + Price;
-            
-
+            return $"{Name} - {Price} GP";
         } 
       
     }

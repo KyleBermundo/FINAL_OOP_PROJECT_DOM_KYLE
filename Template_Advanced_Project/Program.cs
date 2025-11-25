@@ -9,9 +9,37 @@ namespace Template_Advanced_Project
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //TODO :)
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("E: Explore | S: Store | P: Pokemon nusery | Q: Quit");
+                Console.WriteLine("Choice: ");
+
+                char choice = char.ToUpper(Console.ReadKey(true).KeyChar);
+
+                if (choice == 'E')
+                {
+                    GameManager.Explore();
+                }
+                else if (choice == 'S')
+                {
+                    
+                }
+                else if (choice == 'P')
+                {
+                    Player.Pokemon_Nursery();
+                    Console.WriteLine("\nAll pokemons healed!");
+                    Console.WriteLine("Press any key...");
+                    Console.ReadKey(true);
+                }
+                else if (choice == 'Q')
+                {
+                    Console.WriteLine("\nGoodbye!");
+                    break;
+                }
+            }
         }   
     }
 }

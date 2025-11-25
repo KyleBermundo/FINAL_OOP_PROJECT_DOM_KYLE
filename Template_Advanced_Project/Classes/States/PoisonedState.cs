@@ -25,8 +25,6 @@ namespace Template_Advanced_Project.Classes.States
 
         }
 
-        //TODO ...
-
         public override string ToString()
         {
             return "PARALYZED";

@@ -23,7 +23,6 @@ namespace Template_Advanced_Project.Classes.States
             return 25; 
         }
 
-        //TODO ...
 
         public override string ToString()
         {

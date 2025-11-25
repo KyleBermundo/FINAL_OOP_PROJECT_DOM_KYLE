@@ -48,7 +48,7 @@ namespace Template_Advanced_Project.Classes
         public string Name { get => name.ToUpper(); }
 
         public IState state { get => status; }
-        public Move MyMove { get => myMove; }
+        public Move MyMove { get => myMove; set => myMove = value; }
 
         public int Hp { get => hp; set => hp = value; }
         public int Hp_MAX { get => hp_MAX; }
@@ -56,6 +56,8 @@ namespace Template_Advanced_Project.Classes
 
         public int Catch_Rate { get => catch_Rate; }
         public int StatusThreshold { get => this.status.GetThreshold(); }
+
+        public int Base_Exp { get => base_Exp;}
         #endregion
 
         public Pokemon(string name, PokemonType type, int hp, int atk, int def, int sp_Atk, int sp_Def, int speed, int catch_Rate, int base_Exp)
