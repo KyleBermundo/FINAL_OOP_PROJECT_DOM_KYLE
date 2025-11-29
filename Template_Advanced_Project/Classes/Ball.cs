@@ -31,7 +31,9 @@ namespace Template_Advanced_Project.Classes
 
         public bool Catch(Pokemon pokemon)
         {
-            Random rnd = new Random();
+            if (pokemon == null) return false;
+
+            Random rnd = RNG.GetInstance();
 
             // Step 1: Master Ball
             if (IsMaster)

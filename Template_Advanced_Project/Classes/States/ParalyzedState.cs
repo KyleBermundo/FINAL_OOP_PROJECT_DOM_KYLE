@@ -8,14 +8,16 @@ namespace Template_Advanced_Project.Classes.States
 {
     public class ParalyzedState : IState
     {
-        internal static IState GetInstance()
+        private static ParalyzedState instance = new ParalyzedState();
+        private ParalyzedState() { }
+        internal static ParalyzedState GetInstance()
         {
-            throw new NotImplementedException();
+            return instance;
         }
 
         public void ExtraDamage(Pokemon pokemon)
         {
-            throw new NotImplementedException();
+           //this state shouldnt do any damage since it paralyses only 
         }
 
         public int GetThreshold()

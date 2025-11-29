@@ -35,7 +35,19 @@ namespace Template_Advanced_Project.Classes
                 if (choice == 'B')
                 {
                     Battle();
-                    break;
+
+                    if (wild.Is_Fainted())
+                    {
+                        Console.WriteLine($"\nThe wild {wild.Name} is already fainted. The battle is over.");
+                        Player.trainer.target = null;
+                        return;
+                    }
+
+                    if (Player.trainer.currentFighter == null || Player.trainer.target.Is_Fainted())
+                    {
+                        Console.WriteLine("\nThe encounter is over");
+                        break;
+                    }
                 }
                 else if (choice == 'C')
                 {
@@ -44,6 +56,7 @@ namespace Template_Advanced_Project.Classes
                     {
                         Player.AddPokemon(wild);
                         Console.WriteLine($"\nYou caught {wild.Name}!");
+                        Player.trainer = null;
                     }
                     else
                     {
@@ -79,6 +92,12 @@ namespace Template_Advanced_Project.Classes
                 "You have no pokemon to fight with!".PrintWarning();
                 return;
             }
+            if (wild.Is_Fainted() ) 
+            {
+                Console.WriteLine($"\nThe wild {wild.Name} is already fainted. The battle is over,");
+                Player.trainer.target = null;
+                return;
+            }
             Console.WriteLine($"Battle Started! {fighter.Name} VS {wild.Name}");
 
             while (true)
@@ -86,7 +105,7 @@ namespace Template_Advanced_Project.Classes
                 //display for battle
                 Console.WriteLine("\n------------------------------");
                 Console.WriteLine($"Your Pokemon: {fighter.Name} Hp {fighter.Hp}/{fighter.Hp_MAX} Status: {fighter}");
-                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp {wild.Hp}/{wild.Hp_MAX} Status: {fighter}");
+                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp {wild.Hp}/{wild.Hp_MAX} Status: {wild}");
                 Console.WriteLine("\n------------------------------");
 
                 //Battle Menu
@@ -104,6 +123,7 @@ namespace Template_Advanced_Project.Classes
                         Console.WriteLine($"\n{wild.Name} fainted!");
                         Player.Reward_GP(wild.Base_Exp);
                         Console.WriteLine($"You gained {wild.Base_Exp} GP!");
+                        Player.trainer.target = null;
                         break;
                     }
 
@@ -121,6 +141,12 @@ namespace Template_Advanced_Project.Classes
                 {
                     BagMenu();
                     fighter = Player.trainer.currentFighter;
+
+                    if (Player.trainer.target == null)
+                    {
+                        Console.WriteLine("\nBattle ended - the wild pokemon was caught");
+                        break;
+                    }
                 }
                 else if (choice == 'S')
                 {
@@ -129,6 +155,7 @@ namespace Template_Advanced_Project.Classes
                     if(fighter == null)
                     {
                         "You have no pokemon left to fight".PrintDanger();
+                        break;
                     }
                 }
                 else if (choice == 'R')

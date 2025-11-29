@@ -8,14 +8,17 @@ namespace Template_Advanced_Project.Classes.States
 {
     public class ASleepState : IState
     {
-        internal static IState GetInstance()
+        public static ASleepState instance = new ASleepState();
+        private ASleepState() { }
+
+        public static ASleepState GetInstance()
         {
-            throw new NotImplementedException();
+            return instance;
         }
 
         public void ExtraDamage(Pokemon pokemon)
         {
-            
+            // doesnt do damage because asleep state
         }
 
         public int GetThreshold()

@@ -8,11 +8,13 @@ namespace Template_Advanced_Project.Classes.States
 {
     public class PoisonedState : IState
     {
-        internal static IState GetInstance()
-        {
-            throw new NotImplementedException();
-        }
+        private static PoisonedState instance = new PoisonedState();
+        private PoisonedState() { }
 
+        public static PoisonedState GetInstance()
+        {
+            return instance;
+        }
         public void ExtraDamage(Pokemon pokemon)
         {
             int dmg = pokemon.Hp_MAX / 8;
@@ -27,7 +29,7 @@ namespace Template_Advanced_Project.Classes.States
 
         public override string ToString()
         {
-            return "PARALYZED";
+            return "POISONED";
         }
     }
 }

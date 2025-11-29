@@ -8,14 +8,17 @@ namespace Template_Advanced_Project.Classes.States
 {
     public class FrozenState : IState
     {
-        internal static IState GetInstance()
+        private static FrozenState instance = new FrozenState();
+        private FrozenState() { }
+
+        public static FrozenState GetInstance()
         {
-            throw new NotImplementedException();
+            return instance;
         }
 
         public void ExtraDamage(Pokemon pokemon)
         {
-           
+           //frozen is a stun so no damage
         }
 
         public int GetThreshold()

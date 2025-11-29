@@ -9,8 +9,8 @@ namespace Template_Advanced_Project.Classes
     public class GameFactory
     {
         public static readonly List<Pokemon> PokemonInWorld = new List<Pokemon>();
-        //public static readonly List<Potion> PotionsInventory = new List<Potion>();
-        //public static readonly List<Ball> BallsInventory = new List<Ball>();
+        public static readonly List<Potion> PotionsInventory = new List<Potion>();
+        public static readonly List<Ball> BallsInventory = new List<Ball>();
 
         static GameFactory()
         {
@@ -46,12 +46,12 @@ namespace Template_Advanced_Project.Classes
             return new Ball(name: "MASTER BALL", price: 1000000, rate: 0, ball_val: 0, 0, isMaster: true);
         }
 
-        /*
+        
         private static void Create_Balls()
         {
-            BallsInventory.Add(new Ball(name: "Poke Ball" , price: 100, rate: 1  , ball_val: 12, max: 255, false));
-            BallsInventory.Add(new Ball(name: "Great Ball", price: 300, rate: 1.5, ball_val: 8 , max: 200, false));
-            BallsInventory.Add(new Ball(name: "Ultra Ball", price: 600, rate: 2  , ball_val: 12, max: 150, false));
+            BallsInventory.Add(new Ball(name: "Poke Ball" , price: 100, rate: 1  , ball_val: 12, 255, false));
+            BallsInventory.Add(new Ball(name: "Great Ball", price: 300, rate: 1.5, ball_val: 8 , 200, false));
+            BallsInventory.Add(new Ball(name: "Ultra Ball", price: 600, rate: 2  , ball_val: 12, 150, false));
         }
         private static void Create_Items()
         {
@@ -126,7 +126,7 @@ namespace Template_Advanced_Project.Classes
         {
             return new Potion(name: "COURAGE CANDY", price: 2000, type: PotionType.COURAGE_CANDY);
         }
-        */
+        
 
         //Data Source: https://pokemondb.net/pokedex/all
 
