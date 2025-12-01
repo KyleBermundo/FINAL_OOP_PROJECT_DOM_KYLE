@@ -25,8 +25,8 @@ namespace Template_Advanced_Project.Classes
 
         public override string ToString()
         {
-            return $"{Name} - {Price} GP";
-        } 
-      
+            return (name + "-" + Price);
+        }
+
     }
 }

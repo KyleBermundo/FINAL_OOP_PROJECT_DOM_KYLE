@@ -43,7 +43,9 @@ namespace Template_Advanced_Project.Classes
                         return;
                     }
 
-                    if (Player.trainer.currentFighter == null || Player.trainer.target.Is_Fainted())
+                    if (Player.trainer.currentFighter == null ||
+                        Player.trainer.target == null ||
+                            Player.trainer.target.Is_Fainted())
                     {
                         Console.WriteLine("\nThe encounter is over");
                         break;
@@ -56,7 +58,7 @@ namespace Template_Advanced_Project.Classes
                     {
                         Player.AddPokemon(wild);
                         Console.WriteLine($"\nYou caught {wild.Name}!");
-                        Player.trainer = null;
+                        Player.trainer.target = null;
                     }
                     else
                     {

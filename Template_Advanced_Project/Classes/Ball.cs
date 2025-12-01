@@ -55,7 +55,12 @@ namespace Template_Advanced_Project.Classes
             // Step 5: Gen-1 formula
             int M = rnd.Next(0, 256);
 
-            int hp = pokemon.Hp <= 0 ? 1 : pokemon.Hp;
+            int hp;
+
+            if (pokemon.Hp <= 0)
+                hp = 1;
+            else
+                hp = pokemon.Hp;
 
             int F = (pokemon.Hp_MAX * 255 * 4) / (hp * ball_Value);
 
