@@ -8,6 +8,7 @@ namespace Template_Advanced_Project.Classes
 {
     public class Trainer
     {
+        //player profile
         //Fields of question 6
         public List<Pokemon> pokemonsCollection;
         public List<Potion> potionsCollection;
@@ -16,23 +17,24 @@ namespace Template_Advanced_Project.Classes
         public Pokemon target = null;
         public Pokemon currentFighter = null;
 
-        public string name;
-        public int GP; //=GoldPiece
+        public string name; //Player
+        public int GP; //GoldPiece or currency
 
         //Constructor of question 6
         public Trainer(string name = "Player",  int GP = 0)
         {
             this.name = name;
             this.GP = GP;
-
+            //creates new list
             pokemonsCollection = new List<Pokemon>();
             potionsCollection = new List<Potion>();
             ballsCollection = new List<Ball>();
-            //creates the pokemon on start for usage
+           
+            //creates the pokemon on start for usage in his party or collection
             Pokemon partner = GameFactory.CreatePartnerPikachu();
             pokemonsCollection.Add(partner);
 
-            //creates pokeballs ready to use in bag
+            //creates new pokeballs ready to use in bag
             ballsCollection.Add(GameFactory.CreatePokeBall());
             ballsCollection.Add(GameFactory.CreatePokeBall());
             ballsCollection.Add(GameFactory.CreatePokeBall());

@@ -27,6 +27,7 @@ namespace Template_Advanced_Project.Classes
             int index = RNG.GetInstance().Next(0, PokemonInWorld.Count);
             return PokemonInWorld[index].Clone();//return a clone of a random obj
         }
+        //creation of your pokemon to use in the beginning
         public static Pokemon CreatePartnerPikachu()
         {          
             Pokemon partner = new Pokemon(name: "Partner Pikachu", type: PokemonType.ELECTRIC, hp: 45, atk: 80, def: 50, sp_Def: 75, sp_Atk: 60, speed: 120, catch_Rate: 190, base_Exp: 112);
