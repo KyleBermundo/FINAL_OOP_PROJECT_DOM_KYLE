@@ -159,6 +159,9 @@ namespace Template_Advanced_Project.Classes
                 Console.WriteLine("You cannot perform this move ! PP = 0");
                 return;//exit
             }
+
+            Console.WriteLine($"{Name} used {MyMove.Name}!");
+
             //Calculate the chance of hitting the target
             int random = RNG.GetInstance().Next(0, 100);
             if (random < this.myMove.Accuracy)

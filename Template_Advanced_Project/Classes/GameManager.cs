@@ -18,7 +18,7 @@ namespace Template_Advanced_Project.Classes
             Player.trainer.target = wild;
 
             Console.WriteLine($"\nA wild {wild.Name} appeard!");
-            Console.WriteLine($"HP: {wild.Hp} Status: {wild}");
+            Console.WriteLine($"HP: {wild.Hp} PP: {wild.MyMove.PP} Status: {wild}");
 
             if (Player.trainer.currentFighter == null && Player.trainer.pokemonsCollection.Count > 0)
             {
@@ -106,8 +106,8 @@ namespace Template_Advanced_Project.Classes
             {
                 //display for battle
                 Console.WriteLine("\n------------------------------");
-                Console.WriteLine($"Your Pokemon: {fighter.Name} Hp {fighter.Hp} Status: {fighter}");
-                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp {wild.Hp} Status: {wild}");
+                Console.WriteLine($"Your Pokemon: {fighter.Name} Hp: {fighter.Hp} PP: {fighter.MyMove.PP} Status: {fighter}");
+                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp: {wild.Hp} PP: {wild.MyMove.PP} Status: {wild}");
                 Console.WriteLine("\n------------------------------");
 
                 //Battle Menu
@@ -277,7 +277,7 @@ namespace Template_Advanced_Project.Classes
             }
 
             Console.WriteLine("Potion #: ");
-            if (!int.TryParse(Console.ReadLine(), out int pick) || pick == 1 || pick > potions.Count)
+            if (!int.TryParse(Console.ReadLine(), out int pick) || pick < 1 || pick > potions.Count)
             {
                 "Invalid potion choice.".PrintWarning();
                 return;
