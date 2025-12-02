@@ -28,10 +28,11 @@ namespace Template_Advanced_Project.Classes
             pokemonsCollection = new List<Pokemon>();
             potionsCollection = new List<Potion>();
             ballsCollection = new List<Ball>();
-
+            //creates the pokemon on start for usage
             Pokemon partner = GameFactory.CreatePartnerPikachu();
             pokemonsCollection.Add(partner);
 
+            //creates pokeballs ready to use in bag
             ballsCollection.Add(GameFactory.CreatePokeBall());
             ballsCollection.Add(GameFactory.CreatePokeBall());
             ballsCollection.Add(GameFactory.CreatePokeBall());

@@ -16,6 +16,7 @@ namespace Template_Advanced_Project.Classes
         {
             Create_Wild_Pokemons();
 
+            //store
             Create_Items();
             Create_Balls();
         }

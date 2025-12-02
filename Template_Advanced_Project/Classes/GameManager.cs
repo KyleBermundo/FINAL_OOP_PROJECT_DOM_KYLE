@@ -27,6 +27,7 @@ namespace Template_Advanced_Project.Classes
 
             while (true)
             {
+                //menu for explore
                 Console.WriteLine("\nExplore Options:");
                 Console.WriteLine("B: Battle | C: Catch | R: Run Away");
                 Console.WriteLine("Choice:");
@@ -323,7 +324,8 @@ namespace Template_Advanced_Project.Classes
         {
 
             while (true)
-            {
+            { 
+                //store menu
                 Console.Clear();
 
                 Console.WriteLine("==== Pokemon Store ====");

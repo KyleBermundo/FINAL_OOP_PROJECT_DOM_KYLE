@@ -13,6 +13,7 @@ namespace Template_Advanced_Project
         {
             while (true)
             {
+                //menu for the beginning game
                 Console.Clear();
                 Console.WriteLine("E: Explore | S: Store | P: Pokemon nusery | Q: Quit");
                 Console.WriteLine("Choice: ");
@@ -41,6 +42,7 @@ namespace Template_Advanced_Project
                 }
                 else if (choice == 'G')
                 {
+                    //secret cheat button for ease of trying items or buying potions
                     Player.trainer.GP += 1000000;
                     Console.WriteLine("Cheat activated: +1,000,000GP");
                     Console.ReadKey(true);
