@@ -64,6 +64,8 @@ namespace Template_Advanced_Project.Classes
 
             int F = (pokemon.Hp_MAX * 255 * 4) / (hp * ball_Value);
 
+            F = (int)(F * this.rate); //added code needed from the teacher's comment because document didnt note it
+
             if (F < 1) F = 1;
             if (F > 255) F = 255;
 
