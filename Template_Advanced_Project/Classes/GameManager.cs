@@ -305,7 +305,7 @@ namespace Template_Advanced_Project.Classes
             Console.WriteLine("\nPokemon Menu - Choose fighter:");
             for (int i = 0;i < list.Count;i++)
             {
-                Console.WriteLine($"{i + 1}, {list[i].Name} HP {list[i].Hp}/{list[i].Hp_MAX}");
+                Console.WriteLine($"{i + 1}, {list[i].Name} HP {list[i].Hp}");
             }
 
             Console.WriteLine("Pokemon #: ");
@@ -318,7 +318,7 @@ namespace Template_Advanced_Project.Classes
             Player.trainer.currentFighter = list[pick - 1];
             Console.WriteLine($"You sent out {Player.trainer.currentFighter.Name}!");
         }
-
+        //store for potions and pokeballs
         public static void Store()
         {
 
@@ -350,7 +350,7 @@ namespace Template_Advanced_Project.Classes
                 }
             }
         }
-
+        //potions menu
         public static void BuyPotionMenu()
         {
             Console.Clear();
@@ -384,7 +384,7 @@ namespace Template_Advanced_Project.Classes
             Console.ReadKey();
 
         }
-
+        //buyball menu
         private static void BuyBallMenu()
         {
             Console.Clear();

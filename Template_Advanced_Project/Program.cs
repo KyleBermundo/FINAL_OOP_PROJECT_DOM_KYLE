@@ -41,8 +41,8 @@ namespace Template_Advanced_Project
                 }
                 else if (choice == 'G')
                 {
-                    Player.trainer.GP += 100000;
-                    Console.WriteLine("Cheat activated: +100,000GP");
+                    Player.trainer.GP += 1000000;
+                    Console.WriteLine("Cheat activated: +1,000,000GP");
                     Console.ReadKey(true);
                 }
             }

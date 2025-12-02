@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Template_Advanced_Project.Classes
 {
+    //part of template given
     public static class Message
     {
         public static void PrintWarning(this string message)

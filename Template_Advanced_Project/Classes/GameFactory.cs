@@ -15,6 +15,7 @@ namespace Template_Advanced_Project.Classes
         static GameFactory()
         {
             Create_Wild_Pokemons();
+
             Create_Items();
             Create_Balls();
         }
@@ -47,15 +48,16 @@ namespace Template_Advanced_Project.Classes
         }
         public static Ball CreateMasterBall()
         {
-            return new Ball(name: "MASTER BALL", price: 1000000, rate: 0, ball_val: 0, 0, isMaster: true);
+            return new Ball(name: "Master Ball", price: 1000000, rate: 0, ball_val: 1, 0, isMaster: true);
         }
 
-        
+        //creation of pokeballs in the shop so it can be bought and transfered to the player's bag
         private static void Create_Balls()
         {
             BallsInventory.Add(new Ball(name: "Poke Ball" , price: 100, rate: 1  , ball_val: 12, 255, false));
             BallsInventory.Add(new Ball(name: "Great Ball", price: 300, rate: 1.5, ball_val: 8 , 200, false));
             BallsInventory.Add(new Ball(name: "Ultra Ball", price: 600, rate: 2  , ball_val: 12, 150, false));
+            BallsInventory.Add(new Ball(name: "Master Ball", price: 1000000, rate: 0, ball_val: 1, 0, true));
         }
         private static void Create_Items()
         {
