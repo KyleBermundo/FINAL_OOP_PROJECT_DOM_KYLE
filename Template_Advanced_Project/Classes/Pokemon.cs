@@ -288,7 +288,7 @@ namespace Template_Advanced_Project.Classes
         }
         public void Max_Heal()
         {
-            this.hp = this.hp_MAX;
+            this.hp = this.hp_MAX * 3;
         }
         public void Full_Heal()
         {
@@ -304,9 +304,8 @@ namespace Template_Advanced_Project.Classes
         {
             if (!Is_Fainted())
             {
-                this.hp = this.hp_MAX;
-
-                this.Full_Heal();
+                Max_Heal();
+                Full_Heal();
             }
         }
         public void Revive()

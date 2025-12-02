@@ -15,7 +15,11 @@ namespace Template_Advanced_Project.Classes
         static GameFactory()
         {
             Create_Wild_Pokemons();
+            Create_Items();
+            Create_Balls();
         }
+
+
         public static Pokemon Get_Random_Pokemon()
         {
             int index = RNG.GetInstance().Next(0, PokemonInWorld.Count);
@@ -69,6 +73,7 @@ namespace Template_Advanced_Project.Classes
             PotionsInventory.Add(new Potion(name: "COURAGE CANDY", price: 2000, type: PotionType.COURAGE_CANDY));
             PotionsInventory.Add(new Potion(name: "MIGHTY CANDY" , price: 2000, type: PotionType.MIGHTY_CANDY));
         }
+
         public static Potion Get_Random_Potion()
         {
             int index = RNG.GetInstance().Next(0, PotionsInventory.Count);
@@ -378,7 +383,5 @@ namespace Template_Advanced_Project.Classes
             PokemonInWorld.Add(wildPokemon);
 
         }
-
-
     }
 }

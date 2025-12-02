@@ -18,7 +18,7 @@ namespace Template_Advanced_Project.Classes
             Player.trainer.target = wild;
 
             Console.WriteLine($"\nA wild {wild.Name} appeard!");
-            Console.WriteLine($"HP: {wild.Hp}/{wild.Hp_MAX} Status: {wild}");
+            Console.WriteLine($"HP: {wild.Hp} Status: {wild}");
 
             if (Player.trainer.currentFighter == null && Player.trainer.pokemonsCollection.Count > 0)
             {
@@ -106,8 +106,8 @@ namespace Template_Advanced_Project.Classes
             {
                 //display for battle
                 Console.WriteLine("\n------------------------------");
-                Console.WriteLine($"Your Pokemon: {fighter.Name} Hp {fighter.Hp}/{fighter.Hp_MAX} Status: {fighter}");
-                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp {wild.Hp}/{wild.Hp_MAX} Status: {wild}");
+                Console.WriteLine($"Your Pokemon: {fighter.Name} Hp {fighter.Hp} Status: {fighter}");
+                Console.WriteLine($"Wild Pokemon: {wild.Name} Hp {wild.Hp} Status: {wild}");
                 Console.WriteLine("\n------------------------------");
 
                 //Battle Menu
@@ -318,5 +318,105 @@ namespace Template_Advanced_Project.Classes
             Player.trainer.currentFighter = list[pick - 1];
             Console.WriteLine($"You sent out {Player.trainer.currentFighter.Name}!");
         }
+
+        public static void Store()
+        {
+
+            while (true)
+            {
+                Console.Clear();
+
+                Console.WriteLine("==== Pokemon Store ====");
+                Console.WriteLine($"Your GP: {Player.trainer.GP}");
+
+                Console.WriteLine("\n1: Buy Potions");
+                Console.WriteLine("2: Buy Balls");
+                Console.WriteLine("Q: Exit Store");
+                Console.WriteLine("Choice: ");
+
+                char choice = Char.ToUpper(Console.ReadKey(true).KeyChar);
+
+                if (choice == '1')
+                {
+                    BuyPotionMenu();
+                }
+                else if (choice == '2')
+                {
+                    BuyBallMenu();
+                }
+                else if (choice == 'Q')
+                {
+                    break;
+                }
+            }
+        }
+
+        public static void BuyPotionMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("==== BUY POTIONS====");
+            Console.WriteLine($"Your GP: {Player.trainer.GP}\n");
+
+            var potions = GameFactory.PotionsInventory;
+
+            for (int i = 0; i < potions.Count; i++)
+            {
+                Console.WriteLine($"{i+ 1}. {potions[i].Name} - {potions[i].Price} GP");
+            }
+
+            Console.WriteLine("Q: Back");
+            Console.WriteLine("\nChoice: ");
+
+            string input = Console.ReadLine();
+            if (input.ToUpper() == "Q") return;
+
+            if (!int.TryParse(input, out int pick) || pick <1 || pick > potions.Count)
+            {
+                "Invalid choice".PrintWarning();
+                Console.ReadKey();
+                return;
+            }
+
+            Potion item = potions[pick - 1].Clone();
+            Player.BuyItem(item);
+
+            Console.WriteLine($"Purchased {item.Name}");
+            Console.ReadKey();
+
+        }
+
+        private static void BuyBallMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("==== Buy Balls ====");
+            Console.WriteLine($"Your GP: {Player.trainer.GP}\n");
+
+            var balls = GameFactory.BallsInventory;
+
+            for (int i = 0; i < balls.Count;i++)
+            {
+                Console.WriteLine($"{i + 1}. {balls[i].Name} - {balls[i].Price} GP");
+            }
+
+            Console.WriteLine("Q: Back");
+            Console.WriteLine("\nChoice: ");
+
+            string input = Console.ReadLine();
+            if (input.ToUpper() == "Q") return;
+
+            if (!int.TryParse (input, out int pick) || pick < 1 || pick > balls.Count)
+            {
+                "Invalid choice!".PrintWarning();
+                Console.ReadKey();
+                return;
+            }
+            
+            Ball item = balls[pick - 1];
+            Player.BuyItem(item);
+
+            Console.WriteLine($"Purchased {item.Name}!");
+            Console.ReadKey();
+        }
+
     }
 }

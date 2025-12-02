@@ -25,7 +25,7 @@ namespace Template_Advanced_Project
                 }
                 else if (choice == 'S')
                 {
-                    
+                    GameManager.Store();
                 }
                 else if (choice == 'P')
                 {
@@ -38,6 +38,12 @@ namespace Template_Advanced_Project
                 {
                     Console.WriteLine("\nGoodbye!");
                     break;
+                }
+                else if (choice == 'G')
+                {
+                    Player.trainer.GP += 100000;
+                    Console.WriteLine("Cheat activated: +100,000GP");
+                    Console.ReadKey(true);
                 }
             }
         }   
